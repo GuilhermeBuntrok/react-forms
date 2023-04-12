@@ -35,8 +35,9 @@ const createUserSchema = z.object({
   })).min(3, {
     message: 'Pelo menos 3 tecnologias devem ser informadas.'
   }),
-  avatar: z.instanceof(FileList)
-    .refine((files) => files?.item(0), "A imagem de perfil é obrigatória")
+  avatar: z
+    .any()
+    .refine((files) => files.length == 1, "A imagem de perfil é obrigatória")
     .refine((files) => files?.[0]?.size <= MAX_FILE_SIZE, `Tamanho máximo de 5MB`)
     .refine(
       (files) => ACCEPTED_IMAGE_TYPES.includes(files?.[0]?.type),
