@@ -1,11 +1,10 @@
 "use client"
-
-import { useState } from "react";
-import { useForm, FormProvider, useFieldArray } from "react-hook-form";
-import { z } from "zod";
+import { useState } from 'react'
+import { useForm, FormProvider, useFieldArray } from 'react-hook-form'
+import { z } from 'zod'
 import { PlusCircle, XCircle } from 'lucide-react'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { Form } from "@/form";
+import { Form } from '@/form'
 import { supabase } from '../lib/supabase'
 
 
